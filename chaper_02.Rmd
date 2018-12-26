@@ -104,9 +104,18 @@ names(Auto)
 ```
 
 # Additional Graphical and Numerical Summaries
+
+We cannot call the variables from the tables (i.e., the table columns) directly, as they still are class variables of the object `Auto`, which we instantiated earlier. Here's what happens if we call them directly.
+
 ```{r}
 plot(cylinders, mpg)
+```
+Only if we call them as object variables the plot command can access them.
+```{r}
 plot(Auto$cylinders, Auto$mpg)
+```
+
+```{r}
 attach(Auto)
 plot(cylinders, mpg)
 cylinders=as.factor(cylinders)
